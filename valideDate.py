@@ -2,8 +2,17 @@ from leapYear import isLeapYear
 
 def validateDate(day, month, year):
     # ...
-    return True
-
+    if ( month in [4,6,9,11] and day < 31 and day > 0):
+        return True
+    elif (isLeapYear(year) == True and month == 2 and day < 30 and day > 0):
+        return True
+    elif(isLeapYear(year) == False and month == 2 and day < 29 and day > 0):
+        return True
+    elif(month in [1,3,5,7,8,10,12] and day < 32 and day > 0):
+        return True
+    else:
+        return False
+    
 def main():
     day   = int(input("Gib ein Tag ein: "))
     month = int(input("Gib ein Monat ein: "))
